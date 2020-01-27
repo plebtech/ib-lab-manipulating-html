@@ -6,12 +6,13 @@ function onLoad() {
     mkTxtBox();
     mkDiv();
     mkP();
+    mkDivBtn();
 }
 
 function list() {
     let listOrdered = document.createElement('ol');
     document.body.appendChild(listOrdered);
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < 5; i++) {
         let listItem = document.createElement('li');
         listOrdered.appendChild(listItem);
     }
@@ -90,4 +91,24 @@ function randomColor() {
     let b = Math.floor(Math.random() * 256);
     let random = "rgb(" + r + "," + g + "," + b + ")";
     return random;
+}
+
+function mkDivBtn() {
+    let btn = document.createElement('button');
+    let btnTxt = document.createTextNode("Click here to add a div");
+    btn.appendChild(btnTxt);
+    let targetLi = document.querySelectorAll('li')[4];
+    targetLi.appendChild(btn);
+    let div = document.createElement('div');
+    targetLi.appendChild(div);
+    listenDivBtn(btn, div);
+}
+
+function listenDivBtn(btn, div) {
+    btn.addEventListener("click", function() {
+        let span = document.createElement('span');
+        let spanTxt = document.createTextNode('Nick Mc');
+        span.appendChild(spanTxt);
+        div.appendChild(span);
+    })
 }
