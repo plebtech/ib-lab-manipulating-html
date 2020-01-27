@@ -56,3 +56,15 @@ $('ol li').eq(4).append('<div></div>');
 $('#btnSpan').click(function () {
     $('#4 > div').append('<span>Nick Mc</span>');
 })
+
+// sixth instruction: ul to step through friends.
+let friends = ['Justin', 'Isabel', 'Nadine', 'Julio', 'Tom', 'Chase', 'Eric', 'Kailei', 'Hallie', 'Malcolm'];
+$('#5').append('<button id="btnUl">Add list item below</button>');
+$('#5').append('<ul></ul>');
+$('#btnUl').click(function () {
+    let existing = $('#5 li');
+    if (existing.length < friends.length) {
+        let friend = friends[existing.length];
+        $('#5 > ul').append(`<li>${friend}</li>`);
+    }
+});
