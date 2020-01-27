@@ -99,7 +99,7 @@ function randomColor() {
 
 function mkDivBtn() {
     let btn = document.createElement('button');
-    let btnTxt = document.createTextNode("Click here to add a div");
+    let btnTxt = document.createTextNode("Click here to add a span");
     btn.appendChild(btnTxt);
     let targetLi = document.querySelectorAll('li')[4];
     targetLi.appendChild(btn);

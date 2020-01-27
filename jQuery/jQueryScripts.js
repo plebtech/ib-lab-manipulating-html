@@ -8,7 +8,7 @@ $(document).ready(function () {
 // overarching ordered list for each instruction.
 $('body').append('<ol></ol>');
 for (i = 0; i < 6; i++) {
-    $('body ol').append('<li></li>');
+    $('body ol').append(`<li id=${i}></li>`);
 }
 
 // first instruction: button to alert.
@@ -49,3 +49,10 @@ $('ol li p').eq(0).click(function () {
     // $(this).css("color", 'red');
     $(this).css("color", randomColor());
 });
+
+// fifth instruction: div that adds span.
+$('ol li').eq(4).append(`<button id="btnSpan">Click here to add a span</button>`);
+$('ol li').eq(4).append('<div></div>');
+$('#btnSpan').click(function () {
+    $('#4 > div').append('<span>Nick Mc</span>');
+})
