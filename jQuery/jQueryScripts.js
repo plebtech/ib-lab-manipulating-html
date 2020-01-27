@@ -41,3 +41,11 @@ function randomColor() {
     let random = "rgb(" + r + "," + g + "," + b + ")";
     return random;
 }
+
+// fourth instruction: changing p color on click.
+let p = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil iusto maxime saepe id eaque nisi laboriosam, reprehenderit enim fuga modi? Nesciunt magni sed placeat saepe quibusdam similique laboriosam, excepturi harum! Explicabo obcaecati maxime reprehenderit cum quis accusantium accusamus. Illum eum numquam vel ipsum iusto inventore possimus eos quod exercitationem, dolorum a distinctio nobis, vitae sequi earum ad! Excepturi quos perferendis quaerat enim provident ex velit eaque nihil cumque at inventore, nam commodi laborum voluptate perspiciatis porro reprehenderit, iusto cupiditate optio neque facere quibusdam assumenda non? Ad ea necessitatibus sint possimus quibusdam tempora numquam, accusamus voluptatibus ab minus adipisci magni repellendus.</p>";
+$('ol li').eq(3).append(p);
+$('ol li p').eq(0).click(function () {
+    // $(this).css("color", 'red');
+    $(this).css("color", randomColor());
+});
