@@ -4,7 +4,8 @@ function onLoad() {
     list();
     mkAlertBtn();
     mkTxtBox();
-    mkDiv();  
+    mkDiv();
+    mkP();
 }
 
 function list() {
@@ -65,4 +66,28 @@ function listenDiv(div) {
     div.addEventListener("mouseout", function() {
         div.style.backgroundColor = 'white';
     })
+}
+
+function mkP() {
+    let p = document.createElement('p');
+    let pTxt = document.createTextNode("Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil iusto maxime saepe id eaque nisi laboriosam, reprehenderit enim fuga modi? Nesciunt magni sed placeat saepe quibusdam similique laboriosam, excepturi harum! Explicabo obcaecati maxime reprehenderit cum quis accusantium accusamus. Illum eum numquam vel ipsum iusto inventore possimus eos quod exercitationem, dolorum a distinctio nobis, vitae sequi earum ad! Excepturi quos perferendis quaerat enim provident ex velit eaque nihil cumque at inventore, nam commodi laborum voluptate perspiciatis porro reprehenderit, iusto cupiditate optio neque facere quibusdam assumenda non? Ad ea necessitatibus sint possimus quibusdam tempora numquam, accusamus voluptatibus ab minus adipisci magni repellendus.");
+    p.appendChild(pTxt);
+    let targetLi = document.querySelectorAll('li')[3];
+    targetLi.appendChild(p);
+    listenP(p);
+}
+
+function listenP(p) {
+    p.addEventListener("click", function() {
+        // p.style.color = 'red';
+        p.style.color = randomColor();
+    });
+}
+
+function randomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let random = "rgb(" + r + "," + g + "," + b + ")";
+    return random;
 }
