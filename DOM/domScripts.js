@@ -1,5 +1,7 @@
+// wait for browser to load HTML, then call loader function.
 document.addEventListener('DOMContentLoaded', onLoad());
 
+// loader function to call all subsequent functions.
 function onLoad() {
     list();
     mkAlertBtn();
@@ -7,12 +9,14 @@ function onLoad() {
     mkDiv();
     mkP();
     mkDivBtn();
+    mkUl();
 }
 
+// create overarching list to number each step.
 function list() {
     let listOrdered = document.createElement('ol');
     document.body.appendChild(listOrdered);
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < 6; i++) {
         let listItem = document.createElement('li');
         listOrdered.appendChild(listItem);
     }
@@ -28,7 +32,7 @@ function mkAlertBtn() {
 }
 
 function listenAlertBtn(btn) {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
         alert("You clicked the button. Good job!");
     });
 }
@@ -45,7 +49,7 @@ function mkTxtBox() {
 }
 
 function listenTxtBtn(btn) {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
         let alertTxt = document.querySelector('input').value;
         alert(alertTxt);
     });
@@ -61,10 +65,10 @@ function mkDiv() {
 }
 
 function listenDiv(div) {
-    div.addEventListener("mouseover", function() {
+    div.addEventListener("mouseover", function () {
         div.style.backgroundColor = 'red';
     });
-    div.addEventListener("mouseout", function() {
+    div.addEventListener("mouseout", function () {
         div.style.backgroundColor = 'white';
     })
 }
@@ -79,7 +83,7 @@ function mkP() {
 }
 
 function listenP(p) {
-    p.addEventListener("click", function() {
+    p.addEventListener("click", function () {
         // p.style.color = 'red';
         p.style.color = randomColor();
     });
@@ -105,10 +109,34 @@ function mkDivBtn() {
 }
 
 function listenDivBtn(btn, div) {
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", function () {
         let span = document.createElement('span');
         let spanTxt = document.createTextNode('Nick Mc');
         span.appendChild(spanTxt);
         div.appendChild(span);
     })
+}
+
+function mkUl() {
+    let btn = document.createElement('button');
+    let btnTxt = document.createTextNode("Add list item below");
+    btn.appendChild(btnTxt);
+    let ul = document.createElement('ul');
+    let targetLi = document.querySelectorAll('li')[5];
+    targetLi.appendChild(btn);
+    targetLi.appendChild(ul);
+    listenUlBtn(btn, ul);
+}
+
+function listenUlBtn(btn, ul) {
+    btn.addEventListener("click", function () {
+        let friends = ['Justin', 'Isabel', 'Nadine', 'Julio', 'Tom', 'Chase', 'Eric', 'Kailei', 'Hallie', 'Malcolm'];
+        let existing = document.querySelectorAll('ul > li');
+        if (existing.length < friends.length) {
+            let li = document.createElement('li');
+            let liTxt = document.createTextNode(friends[existing.length]);
+            li.appendChild(liTxt);
+            ul.appendChild(li);
+        }
+    });
 }
