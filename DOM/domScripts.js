@@ -66,7 +66,7 @@ function mkDiv() {
 
 function listenDiv(div) {
     div.addEventListener("mouseover", function () {
-        div.style.backgroundColor = 'red';
+        div.style.backgroundColor = randomColor();
     });
     div.addEventListener("mouseout", function () {
         div.style.backgroundColor = 'white';
