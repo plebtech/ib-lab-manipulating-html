@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', onLoad());
 function onLoad() {
     list();
     mkAlertBtn();
-    mkTxtBox();   
+    mkTxtBox();
+    mkDiv();  
 }
 
 function list() {
@@ -46,4 +47,22 @@ function listenTxtBtn(btn) {
         let alertTxt = document.querySelector('input').value;
         alert(alertTxt);
     });
+}
+
+function mkDiv() {
+    let div = document.createElement('div');
+    let divTxt = document.createTextNode("This is a div");
+    div.appendChild(divTxt);
+    let targetLi = document.querySelectorAll('li')[2];
+    targetLi.appendChild(div);
+    listenDiv(div);
+}
+
+function listenDiv(div) {
+    div.addEventListener("mouseover", function() {
+        div.style.backgroundColor = 'red';
+    });
+    div.addEventListener("mouseout", function() {
+        div.style.backgroundColor = 'white';
+    })
 }
